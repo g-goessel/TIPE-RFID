@@ -1,0 +1,7 @@
+Pour l'instant je me suis concentré sur la réalisation du lecteur RFID. Je vais pouvoir récupérer les données brutes pour ensuite trouver le protocole utilisé.
+
+Le lecteur fonctionne en démodulant le signal AM émis par la carte en le multipliant par la porteuse. Le signal obtenu est filtré pour ne garder que la composante continue. Le résultat est ensuite récupéré sur ordinateur et analysé manuellement une première fois afin d'en comprendre le fonctionnement.
+
+Une fois le protocole compris je coderais un programme python qui va automatiquement décoder les données binaires brutes en données compréhensibles. Je vais programmer un micro-controlleur pour exporter les données brutes lues vers le port série et le programme python sur l'ordinateur va les interpréter (il serait possible de programmer le micro-controlleur pour lui faire décoder directement mais le langage étant du C, je préfère utiliser du python sur une machine distante pour rester proche du programme officiel). Cette deuxième partie va se montrer plus complexe car il faudra bien gérer les timmings de mesure du signal, trouver un moyen pour déclencher la capture lors de l'approche d'une carte,...
+
+L'étude théorique va porter sur les méthodes utilisées afin de transmettre de manière sûre (sans perte ni dégradation) le message depuis la carte juqu'au lecteur: sommes de contrôle, codages utilisés pour les données (code ASCII, ...) mais aussi vérifié si il existe une quelconque sécurité
